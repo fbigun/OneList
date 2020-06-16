@@ -1,5 +1,5 @@
-FROM scratch
+FROM debian:stable-slim
 
 WORKDIR /
-COPY OneDriveUploader /
-CMD ["/OneDriveUploader", "--help"]
+COPY OneDriveUploader /usr/bin
+CMD ["OneDriveUploader", "--help"]
