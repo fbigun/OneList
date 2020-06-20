@@ -1,5 +1,10 @@
 FROM debian:stable-slim
 
 WORKDIR /
-COPY OneDriveUploader /usr/bin
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        ca-certificates libssl1.1 openssl \
+        && rm -rf /var/lib/apt/lists/*
+
+COPY OneDriveUploader /usr/local/bin/
 CMD ["OneDriveUploader", "--help"]
